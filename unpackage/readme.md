@@ -1,0 +1,1 @@
+查看hash1的命令：keytool -list -v -keystore logapp.keystore

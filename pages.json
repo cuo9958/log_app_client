@@ -1,0 +1,51 @@
+{
+	"pages": [{
+		"path": "pages/index/index",
+		"style": {
+			"navigationBarTitleText": "告警通知",
+			"enablePullDownRefresh": true
+		}
+	}, {
+		"path": "pages/project/index",
+		"style": {
+			"navigationBarTitleText":"项目"
+		}
+	}, {
+		"path": "pages/setting/index",
+		"style": {
+			"navigationBarTitleText":"设置"
+		}
+	}, {
+		"path": "pages/index/detail",
+		"style": {
+			"navigationBarTitleText":"详情"
+		}
+	}],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#007AFF",
+		"backgroundColor": "#FFFFFF"
+	},
+	"tabBar": {
+		"spacing": "5px",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/image/message.png",
+				"selectedIconPath": "static/image/message2.png"
+			},
+			{
+				"pagePath": "pages/project/index",
+				"text": "项目",
+				"iconPath": "static/image/project.png",
+				"selectedIconPath": "static/image/project2.png"
+			}, {
+				"pagePath": "pages/setting/index",
+				"text": "设置",
+				"iconPath": "static/image/setting.png",
+				"selectedIconPath": "static/image/setting2.png"
+			}
+		]
+	}
+}
