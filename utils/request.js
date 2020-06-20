@@ -1,14 +1,29 @@
-async function _request(url, data, header = {}) {
+// const host = "http://10.36.32.27:18801/api/open"
+const host = "http://shequ.guofangchao.com/api/open"
+
+let _clientid = ''
+
+function getClientID() {
+	if (!_clientid) {
+		const info = plus.push.getClientInfo();
+		_clientid = info.clientid;
+	}
+	return _clientid;
+}
+async function _request(url, data) {
+	const header = {
+		clienid: getClientID()
+	}
 	const [err, res] = await uni.request({
-		url: url, //仅为示例，并非真实接口地址。
+		url: host + url,
+		method: "GET",
 		data: data,
-		header
+		header,
+		sslVerify: false
 	});
 	if (res.statusCode !== 200) throw new Error("网络失败")
 	const result = res.data;
-	console.log("result", result, result.status)
-	if (result.status !== 0) throw new Error(result.msg);
-	console.log("data", result.data)
+	if (result.code !== 1) throw new Error(result.msg || '服务器连接失败');
 	return result.data
 }
 

@@ -8,17 +8,18 @@
 	}, {
 		"path": "pages/project/index",
 		"style": {
-			"navigationBarTitleText":"项目"
+			"navigationBarTitleText": "项目",
+			"enablePullDownRefresh": true
 		}
 	}, {
 		"path": "pages/setting/index",
 		"style": {
-			"navigationBarTitleText":"设置"
+			"navigationBarTitleText": "设置"
 		}
 	}, {
 		"path": "pages/index/detail",
 		"style": {
-			"navigationBarTitleText":"详情"
+			"navigationBarTitleText": "详情"
 		}
 	}],
 	"globalStyle": {

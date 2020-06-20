@@ -1,10 +1,9 @@
 <template>
 	<view class="container">
 		<uni-list>
-			<uni-list-item title="测试项目" :showSwitch="true" :showArrow="false" @switchChange="switchChange(1)">
+			<uni-list-item class="items" v-for="item in list" title="测试项目" :showArrow="false">
 			</uni-list-item>
 		</uni-list>
-		<button @click="open">测试</button>
 		<xuan-loading ref="loading" :shadeClick="true"></xuan-loading>
 	</view>
 </template>
@@ -15,18 +14,28 @@
 	export default {
 		data() {
 			return {
-
+				list: []
 			};
 		},
-		async onLoad() {
-			try {
-				const data = await request.get("http://xc.fe.corp.daling.com/api_config/resource/wxapp");
-				console.log(data)
-			} catch (e) {
-				console.log(e)
-			}
+		onLoad() {
+			this.getData();
+		},
+		onPullDownRefresh() {
+			this.getData()
+			setTimeout(function() {
+				uni.stopPullDownRefresh();
+			}, 3000);
 		},
 		methods: {
+			async getData() {
+				try {
+					const list = await request.get("/project");
+					this.list = list;
+					uni.stopPullDownRefresh();
+				} catch (e) {
+					console.log(e.message);
+				}
+			},
 			switchChange(e, id) {
 				console.log(e, id)
 			},
@@ -46,5 +55,9 @@
 <style>
 	.container {
 		font-size: 12px;
+	}
+
+	.items {
+		border-bottom: solid 1px #efefef;
 	}
 </style>
