@@ -44,11 +44,7 @@
                 "push" : {
                     "unipush" : {}
                 },
-                "ad" : {
-                    "360" : {},
-                    "csj" : {},
-                    "gdt" : {}
-                }
+                "ad" : {}
             },
             "icons" : {
                 "android" : {

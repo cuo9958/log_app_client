@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<uni-list>
-			<uni-list-item class="items" v-for="item in list" title="测试项目" :showArrow="false">
+			<uni-list-item class="items" v-for="item in list" :title="item.name" :rightText="getDate(item.createdAt)" :showArrow="false" thumb="https://img5.daling.com/zin/public/specialTopic/2020/06/20/18/44/22/525400B9EA93HWRJF000008056333.png">
 			</uni-list-item>
 		</uni-list>
 		<xuan-loading ref="loading" :shadeClick="true"></xuan-loading>
@@ -10,7 +10,8 @@
 
 <script>
 	import request from "../../utils/request";
-
+	import DateTime from "../../utils/datetime.js";
+	
 	export default {
 		data() {
 			return {
@@ -35,6 +36,10 @@
 				} catch (e) {
 					console.log(e.message);
 				}
+			},
+			getDate(time) {
+				if (!time) return '';
+				return time.split('T')[0];
 			},
 			switchChange(e, id) {
 				console.log(e, id)
